@@ -1,14 +1,20 @@
 package br.com.caelum.financas.modelo;
 
+import javax.persistence.*;
+
+
+@Entity
 public class Conta {
+	
+	@GeneratedValue
+	@Id
+	private Integer id;
 	
 	private String titular;
 	private String agencia;
 	private String numero;
 	private String banco;
 	
-	private Integer id;
-
 	public String getTitular() {
 		return titular;
 	}
