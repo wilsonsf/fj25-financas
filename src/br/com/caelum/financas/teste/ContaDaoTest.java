@@ -68,14 +68,14 @@ public class ContaDaoTest {
 		
 		Conta conta = criaConta();
 		
-		Integer contagem = dao.lista().size();
+		Integer contagem = dao.buscaTodos().size();
 		
 		manager.getTransaction().begin();
 		dao.adiciona(conta);
 		manager.getTransaction().commit();
 		
 		assertTrue(conta.getId() != null);
-		assertTrue(dao.lista().size() == contagem + 1);
+		assertTrue(dao.buscaTodos().size() == contagem + 1);
 	}
 	
 	@Test
@@ -87,13 +87,13 @@ public class ContaDaoTest {
 		dao.adiciona(conta);
 		manager.getTransaction().commit();
 		
-		Integer contagem = dao.lista().size();
+		Integer contagem = dao.buscaTodos().size();
 		
 		manager.getTransaction().begin();
 		dao.remove(conta);
 		manager.getTransaction().commit();
 		
-		assertTrue(dao.lista().size() == contagem - 1);
+		assertTrue(dao.buscaTodos().size() == contagem - 1);
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ public class ContaDaoTest {
 	
 	@Test
 	public void deveBuscarTodosOsRegistros() {
-		List<Conta> lista = dao.lista();
+		List<Conta> lista = dao.buscaTodos();
 		
 		assertTrue(lista != null);
 		assertTrue(lista.size() > 0);

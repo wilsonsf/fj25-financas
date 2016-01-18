@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 import br.com.caelum.financas.modelo.Conta;
 
-public class ContaDao {
+public class ContaDao implements Dao<Conta>{
 
 	private EntityManager manager;
 
@@ -18,16 +18,23 @@ public class ContaDao {
 		manager.persist(conta);
 	}
 
-	public Conta busca(Integer i) {
-		return manager.find(Conta.class, i);
+	public Conta busca(Integer id) {
+		return manager.find(Conta.class, id);
 	}
 
-	public List<Conta> lista() {
+	@Override
+	public List<Conta> buscaTodos() {
 		return this.manager.createQuery("select c from Conta c", Conta.class).getResultList();
 	}
 
 	public void remove(Conta conta) {
 		manager.remove(conta);
+	}
+
+	@Override
+	public void atualiza(Conta entity) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
