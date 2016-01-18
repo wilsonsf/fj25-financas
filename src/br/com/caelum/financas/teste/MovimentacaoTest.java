@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.modelo.Movimentacao;
+import br.com.caelum.financas.modelo.TipoMovimentacao;
 
 public class MovimentacaoTest {
 
@@ -21,7 +22,7 @@ public class MovimentacaoTest {
 		mov.setData(Calendar.getInstance());
 		mov.setValor(BigDecimal.ZERO);
 		mov.setConta(new Conta());
-		
+		mov.setTipoMovimentacao(TipoMovimentacao.ENTRADA);
 
 		assertTrue(mov != null);
 		assertTrue(mov.getId() == 1);
@@ -29,6 +30,7 @@ public class MovimentacaoTest {
 //		assertTrue(mov.getData().)
 		assertTrue(mov.getValor().equals(BigDecimal.ZERO));
 		assertTrue(mov.getConta() != null);
+		assertTrue(mov.getTipoMovimentacao() == TipoMovimentacao.ENTRADA);
 	}
 
 }
