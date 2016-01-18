@@ -1,6 +1,8 @@
 package br.com.caelum.financas.modelo;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Conta {
