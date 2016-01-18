@@ -29,7 +29,7 @@ public class Movimentacao {
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovimentacao;
 	
-	@ManyToOne
+	@ManyToOne //(cascade={CascadeType.PERSIST})
 	private Conta conta;
 	
 	public Integer getId() {

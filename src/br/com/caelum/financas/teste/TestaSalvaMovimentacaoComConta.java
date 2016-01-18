@@ -21,6 +21,8 @@ public class TestaSalvaMovimentacaoComConta {
 		c.setAgencia("999");
 		c.setTitular("Maria");
 		
+		manager.persist(c);
+		
 		Movimentacao mov = new Movimentacao();
 		mov.setConta(c);
 		mov.setData(Calendar.getInstance());
