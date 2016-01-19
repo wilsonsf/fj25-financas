@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,10 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.caelum.financas.modelo.listeners.MovimentacaoListener;
+
 @Entity
+@EntityListeners(MovimentacaoListener.class)
 public class Movimentacao {
 	
 	@GeneratedValue
