@@ -3,6 +3,7 @@ package br.com.caelum.financas.modelo;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,7 +30,7 @@ public class Movimentacao {
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovimentacao;
 	
-	@ManyToOne //(cascade={CascadeType.PERSIST})
+	@ManyToOne (cascade={CascadeType.PERSIST})
 	private Conta conta;
 	
 	public Integer getId() {

@@ -1,6 +1,6 @@
 package br.com.caelum.financas.teste;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -55,7 +55,7 @@ public class MovimentacaoDaoTest {
 		conta.setNumero(diff+"123456-6");
 		conta.setAgencia(diff+"0999");
 		
-		mov.setConta(null);
+		mov.setConta(conta);
 		
 		return mov;
 	}
@@ -80,11 +80,14 @@ public class MovimentacaoDaoTest {
 		
 		Movimentacao mov = criaMovimentacao();
 		
+		int quantidade = dao.buscaTodos().size();
+
+		manager.getTransaction().begin();
 		dao.adiciona(mov);
+		manager.getTransaction().commit();
 		
+		assertTrue(dao.buscaTodos().size() == ++quantidade);
 		
-		
-		fail("Not yet implemented");
 	}
 
 }
