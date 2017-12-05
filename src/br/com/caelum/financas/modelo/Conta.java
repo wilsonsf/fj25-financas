@@ -7,10 +7,11 @@ import javax.persistence.Id;
 @Entity
 public class Conta {
 	
-	//@ public invariant !titular.equals("");
-	//@ public invariant !agencia.equals("");
-	//@ public invariant !numero.equals("");
-	//@ public invariant !banco.equals("");
+	/*@ public invariant !titular.equals("");
+	  @ public invariant !agencia.equals("");
+	  @ public invariant !numero.equals("");
+	  @ public invariant !banco.equals("");
+	 @*/
 	
 	@GeneratedValue
 	@Id
