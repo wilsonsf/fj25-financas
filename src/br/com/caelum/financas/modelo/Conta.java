@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Conta {
 	
-	//@ public invariant !titular.equals("");
+	//@ public invariant !titular.equals("");;
 	//@ public invariant !agencia.equals("");
 	//@ public invariant !numero.equals("");
 	//@ public invariant !banco.equals("");
@@ -33,6 +33,10 @@ public class Conta {
 		return agencia;
 	}
 
+	/*@ requires 0 < Integer.parseInt(agencia);
+	  @ requires 100000 > Integer.parseInt(agencia);
+	  @ ensures this.agencia.equals(agencia);
+	  @*/
 	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
