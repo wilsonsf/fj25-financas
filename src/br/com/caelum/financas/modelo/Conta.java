@@ -7,14 +7,19 @@ import javax.persistence.Id;
 @Entity
 public class Conta {
 	
+	//@ public invariant !titular.equals("");
+	//@ public invariant !agencia.equals("");
+	//@ public invariant !numero.equals("");
+	//@ public invariant !banco.equals("");
+	
 	@GeneratedValue
 	@Id
 	private Integer id;
 	
-	private String titular;
-	private String agencia;
-	private String numero;
-	private String banco;
+	private /*@ spec_public @*/ String titular;
+	private /*@ spec_public @*/ String agencia;
+	private /*@ spec_public @*/ String numero;
+	private /*@ spec_public @*/ String banco;
 	
 	public String getTitular() {
 		return titular;
