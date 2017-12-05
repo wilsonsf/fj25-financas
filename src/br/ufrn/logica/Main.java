@@ -1,9 +1,11 @@
 package br.ufrn.logica;
 
+import br.com.caelum.financas.modelo.Conta;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Conta conta = new Conta();
 
 	}
 
