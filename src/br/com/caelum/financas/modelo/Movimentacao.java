@@ -177,12 +177,16 @@ public class Movimentacao {
 		this.tipoMovimentacao = tipoMovimentacao;
 	}
 
-
 	//@ assignable data;
 	@PrePersist
 	@PreUpdate
 	public void preAltera() {
 		this.setData(Calendar.getInstance());
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

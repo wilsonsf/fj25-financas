@@ -8,7 +8,7 @@ import br.com.caelum.financas.modelo.Conta;
 
 public class ContaDao implements Dao<Conta>{
 
-	private EntityManager manager;
+	private /*@ spec_public non_null @*/ EntityManager manager; //@ in entityManager;
 
 	public ContaDao(EntityManager manager) {
 		this.manager = manager;

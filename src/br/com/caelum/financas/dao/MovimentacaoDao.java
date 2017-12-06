@@ -10,7 +10,7 @@ public class MovimentacaoDao implements Dao<Movimentacao> {
 
 	//@ 
 	
-	private /*@ spec_public @*/ EntityManager manager; //@in entityManager;
+	private /*@ spec_public non_null @*/ EntityManager manager; //@in entityManager;
 
 	public MovimentacaoDao(EntityManager manager) {
 		this.manager = manager;
