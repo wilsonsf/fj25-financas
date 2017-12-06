@@ -7,37 +7,52 @@ import javax.persistence.Id;
 @Entity
 public class Conta {
 	
-	//@ public invariant !titular.equals("");
-	//@ public invariant !agencia.equals("");
-	//@ public invariant !numero.equals("");
-	//@ public invariant !banco.equals("");
+	/*@ public invariant !titular.equals("");
+	  @ public invariant !agencia.equals("");
+	  @ public invariant !numero.equals("");
+	  @ public invariant !banco.equals("");
+	 @*/
 	
 	@GeneratedValue
 	@Id
-	private Integer id;
+	private /*@ spec_public nullable @*/ Integer id;
 	
 	private /*@ spec_public @*/ String titular;
 	private /*@ spec_public @*/ String agencia;
 	private /*@ spec_public @*/ String numero;
 	private /*@ spec_public @*/ String banco;
 	
-	public String getTitular() {
+	@Deprecated
+	public Conta() {	}
+	
+	public /*@ pure @*/ String getTitular() {
 		return titular;
 	}
 
-	public void setTitular(String titular) {
-		this.titular = titular;
+	/*@ requires t != null;
+	  @ requires t.equals("");
+	  @ assignable titular;
+	  @ ensures titular.equals(t);
+	   @*/
+	public void setTitular(String t) {
+		this.titular = t;
 	}
 
-	public String getAgencia() {
+	public /*@ pure @*/ String getAgencia() {
 		return agencia;
 	}
 
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
+	/*@ requires a != null;
+	  @ requires a.equals("");
+	  @ assignable agencia;
+	  @ ensures agencia.equals(a);
+	   @*/
+	public void setAgencia(String a) {
+//		this.agencia = a;
+		
 	}
 
-	public String getNumero() {
+	public /*@ pure @*/ String getNumero() {
 		return numero;
 	}
 
@@ -45,7 +60,7 @@ public class Conta {
 		this.numero = numero;
 	}
 
-	public String getBanco() {
+	public /*@ pure @*/ String getBanco() {
 		return banco;
 	}
 
@@ -53,12 +68,16 @@ public class Conta {
 		this.banco = banco;
 	}
 
-	public Integer getId() {
+	public /*@ pure @*/ Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }
