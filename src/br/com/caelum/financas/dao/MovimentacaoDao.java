@@ -8,7 +8,9 @@ import br.com.caelum.financas.modelo.Movimentacao;
 
 public class MovimentacaoDao implements Dao<Movimentacao> {
 
-	private EntityManager manager;
+	//@ 
+	
+	private /*@ spec_public @*/ EntityManager manager; //@in entityManager;
 
 	public MovimentacaoDao(EntityManager manager) {
 		this.manager = manager;
