@@ -6,21 +6,21 @@ import javax.persistence.Id;
 
 @Entity
 public class Conta {
-	
+
 	/*@ public invariant !titular.equals("");
 	  @ public invariant !agencia.equals("");
 	  @ public invariant !numero.equals("");
 	  @ public invariant !banco.equals("");	@*/
-	
+
 	@GeneratedValue
 	@Id
 	private /*@ spec_public @*/ Integer id;
-	
+
 	private /*@ spec_public non_null @*/ String titular;
 	private /*@ spec_public non_null @*/ String agencia;
 	private /*@ spec_public non_null @*/ String numero;
 	private /*@ spec_public non_null @*/ String banco;
-	
+
 	/*@	requires newTitular != null && !newTitular.equals("");
 	  @ requires newAgencia != null && !newAgencia.equals("");
 	  @	requires newNumero != null && !newNumero.equals("");
@@ -34,23 +34,24 @@ public class Conta {
 	  @ ensures numero.equals(newNumero);
 	  @ ensures banco.equals(newBanco);	@*/
 	public Conta(String newTitular, String newAgencia, String newNumero, String newBanco) {
-		this.titular = newTitular;
-		this.agencia = newAgencia;
-		this.numero = newNumero;
-		this.banco = newBanco;
+		titular = newTitular;
+		agencia = newAgencia;
+		numero = newNumero;
+		banco = newBanco;
 	}
-	
+
 	/*@	requires newId != null && !newId.equals("");
 	  @ assignable id;
 	  @ ensures id.equals(newId);	@*/
 	public Conta(Integer newId) {
-		this.id = newId;
+		id = newId;
 	}
+
 	@Deprecated
 	public /*@ pure @*/ Conta() {	}
-	
+
 	/*@	assignable \nothing;
-	  @	ensures \result == this.titular; 
+	  @	ensures \result == this.titular;
 	  @ ensures_redundantly
 	  @		id == \old(id)
 	  @		&& titular == \old(titular)
@@ -72,7 +73,7 @@ public class Conta {
 	  @		&& banco == \old(banco);
 	  @ @*/
 	public void setTitular(String newTitular) {
-		this.titular = newTitular;
+		titular = newTitular;
 	}
 
 	/*@	assignable \nothing;
@@ -98,9 +99,9 @@ public class Conta {
 	  @		&& banco == \old(banco);
 	  @ @*/
 	public void setAgencia(String newAgencia) {
-		this.agencia = newAgencia;
+		agencia = newAgencia;
 	}
-	
+
 	/*@	assignable \nothing;
 	  @	ensures \result == this.numero;
 	  @ ensures_redundantly
@@ -124,7 +125,7 @@ public class Conta {
 	  @		&& banco == \old(banco);
 	  @ @*/
 	public void setNumero(String newNumero) {
-		this.numero = newNumero;
+		numero = newNumero;
 	}
 
 	/*@	assignable \nothing;
@@ -150,7 +151,7 @@ public class Conta {
 	  @		&& numero == \old(numero);
 	  @ @*/
 	public void setBanco(String newBanco) {
-		this.banco = newBanco;
+		banco = newBanco;
 	}
 
 	/*@	assignable \nothing;
@@ -168,7 +169,7 @@ public class Conta {
 
 	/*@ requires newId != null && !newId.equals("");
 	  @ assignable id;
-	  @ ensures id.equals(newId);	
+	  @ ensures id.equals(newId);
 	  @ ensures_redundantly
 	  @		titular == \old(titular)
 	  @		&& agencia == \old(agencia)
@@ -176,9 +177,9 @@ public class Conta {
 	  @		&& banco == \old(banco);
 	  @ @*/
 	public void setId(Integer newId) {
-		this.id = newId;
+		id = newId;
 	}
-	
+
 	// @ param args
 	public static void main(String[] args) {
 		setTitularTest();
