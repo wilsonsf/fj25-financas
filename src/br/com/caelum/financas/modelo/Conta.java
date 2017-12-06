@@ -42,14 +42,12 @@ public class Conta {
 		return agencia;
 	}
 
-	/*@ requires a != null;
-	  @ requires a.equals("");
+	/*@ requires a != null && a.equals("");
 	  @ assignable agencia;
 	  @ ensures agencia.equals(a);
-	   @*/
+	  @*/
 	public void setAgencia(String a) {
-//		this.agencia = a;
-		
+		this.agencia = a;
 	}
 
 	public /*@ pure @*/ String getNumero() {

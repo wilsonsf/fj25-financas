@@ -14,10 +14,12 @@ public class ContaDao implements Dao<Conta>{
 		this.manager = manager;
 	}
 
+	@Override
 	public void adiciona(Conta conta) {
 		manager.persist(conta);
 	}
 
+	@Override
 	public Conta busca(Integer id) {
 		return manager.find(Conta.class, id);
 	}
@@ -27,6 +29,7 @@ public class ContaDao implements Dao<Conta>{
 		return this.manager.createQuery("select c from Conta c", Conta.class).getResultList();
 	}
 
+	@Override
 	public void remove(Conta conta) {
 		manager.remove(conta);
 	}
