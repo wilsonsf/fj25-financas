@@ -10,8 +10,7 @@ public class Conta {
 	/*@ public invariant !titular.equals("");
 	  @ public invariant !agencia.equals("");
 	  @ public invariant !numero.equals("");
-	  @ public invariant !banco.equals("");
-	 @*/
+	  @ public invariant !banco.equals("");	@*/
 	
 	@GeneratedValue
 	@Id
@@ -29,11 +28,9 @@ public class Conta {
 		return titular;
 	}
 
-	/*@ requires t != null;
-	  @ requires t.equals("");
+	/*@ requires t != null && t.equals("");
 	  @ assignable titular;
-	  @ ensures titular.equals(t);
-	   @*/
+	  @ ensures titular.equals(t);	@*/
 	public void setTitular(String t) {
 		this.titular = t;
 	}
@@ -44,8 +41,7 @@ public class Conta {
 
 	/*@ requires a != null && a.equals("");
 	  @ assignable agencia;
-	  @ ensures agencia.equals(a);
-	  @*/
+	  @ ensures agencia.equals(a);	@*/
 	public void setAgencia(String a) {
 		this.agencia = a;
 	}

@@ -44,11 +44,9 @@ public class Movimentacao {
 	private /*@ spec_public @*/  Conta conta;
 	 
 	/*@
-	  @ requires newDescricao != null;
-	  @ requires newDescricao.equals("");
+	  @ requires newDescricao != null && newDescricao.equals("");
 	  @ requires newDate != null;
-	  @ requires newValor != null;
-	  @ requires newValor.compareTo(BigDecimal.ZERO) != -1;
+	  @ requires newValor != null && newValor.compareTo(BigDecimal.ZERO) != -1;
 	  @ requires newConta != null;
 	  @ assignable descricao;
 	  @ assignable data; 
@@ -127,6 +125,7 @@ public class Movimentacao {
 	  @		requires newValor.compareTo(BigDecimal.ZERO) != -1;
 	  @		assignable \nothing;
 	  @		ensures valor == \old(valor);
+	  @		signals ValorNegativoException
 	  @*/
 	public void setValor(BigDecimal v) {
 		this.valor = v;
